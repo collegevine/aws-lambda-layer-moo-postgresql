@@ -3,7 +3,10 @@
 set -e
 
 # Pull PostgreSQL manually (Git submodules doesn’t work for some reason)
-git clone git://git.postgresql.org/git/postgresql.git
+if [[ ! -d postgresql ]]; then
+    git clone git://git.postgresql.org/git/postgresql.git
+fi
+
 cd postgresql
 git checkout tags/REL_11_2
 
